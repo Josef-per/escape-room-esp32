@@ -1,0 +1,447 @@
+.lp {
+  --fundo: #060807;
+  --painel: #101512;
+  --painel-2: #171e1a;
+  --linha: #2b3a31;
+  --fosforo: #5dff7a;
+  --fosforo-suave: #9bd8a8;
+  --alerta: #ff4a4a;
+  --mono: "Cascadia Mono", "Lucida Console", ui-monospace, "Courier New", monospace;
+
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(20px, 5vw, 56px) clamp(14px, 4vw, 40px) 64px;
+  background:
+    radial-gradient(ellipse at 50% 0%, #0f1f15 0%, transparent 60%),
+    var(--fundo);
+  color: var(--fosforo-suave);
+  font-family: var(--mono);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+/* Linhas de monitor antigo por cima de tudo */
+.lp::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.22) 0,
+    rgba(0, 0, 0, 0.22) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 50;
+}
+
+.lp *,
+.lp *::before,
+.lp *::after {
+  box-sizing: border-box;
+}
+
+.lp h1,
+.lp h2,
+.lp p,
+.lp ol {
+  margin: 0;
+}
+
+.lp ol {
+  padding: 0;
+  list-style: none;
+}
+
+.lp button:focus-visible,
+.lp input:focus-visible {
+  outline: 2px solid var(--fosforo);
+  outline-offset: 3px;
+}
+
+/* Topo */
+.lp-topo {
+  max-width: 860px;
+  margin: 0 auto 32px;
+}
+
+.lp-sala {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--alerta);
+  margin-bottom: 14px;
+  animation: lp-piscar 2.4s steps(1) infinite;
+}
+
+.lp-titulo {
+  font-size: clamp(2.4rem, 8vw, 4.6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--fosforo);
+  text-shadow: 0 0 14px rgba(93, 255, 122, 0.45), 2px 0 rgba(255, 74, 74, 0.45),
+    -2px 0 rgba(47, 123, 255, 0.45);
+  animation: lp-tremer 6s infinite;
+}
+
+.lp-intro {
+  max-width: 56ch;
+  margin-top: 20px;
+  font-size: 1.02rem;
+}
+
+/* Janelas */
+.lp-janelas {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+}
+
+.lp-janela {
+  background: var(--painel);
+  border: 1px solid var(--linha);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6), 0 0 28px rgba(93, 255, 122, 0.06);
+}
+
+.lp-janela-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: linear-gradient(90deg, #26332b, #121915);
+  border-bottom: 1px solid var(--linha);
+}
+
+.lp-janela-barra h2 {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--fosforo);
+}
+
+.lp-janela-controles {
+  display: flex;
+  gap: 6px;
+}
+
+.lp-janela-controles i {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--fosforo-suave);
+  opacity: 0.6;
+}
+
+.lp-janela-corpo {
+  padding: clamp(16px, 3vw, 26px);
+}
+
+/* Tutorial */
+.lp-passos {
+  display: grid;
+  gap: 16px;
+  counter-reset: passo;
+}
+
+.lp-passos li {
+  counter-increment: passo;
+  position: relative;
+  padding-left: 44px;
+}
+
+.lp-passos li::before {
+  content: "0" counter(passo);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--fosforo);
+  font-weight: 700;
+}
+
+.lp-passos strong {
+  color: var(--fosforo);
+}
+
+/* Conexão */
+.lp-form p {
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+.lp-form .lp-aviso {
+  margin: 14px 0 0;
+  color: var(--alerta);
+}
+
+.lp-form-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lp-form input[type="text"] {
+  flex: 1 1 220px;
+  min-width: 0;
+  background: #060a07;
+  color: var(--fosforo);
+  border: 1px solid var(--linha);
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.lp-form input[type="text"]:disabled {
+  opacity: 0.6;
+}
+
+.lp-btn {
+  font: inherit;
+  background: var(--painel-2);
+  color: var(--fosforo);
+  border: 1px solid var(--fosforo);
+  padding: 10px 18px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+}
+
+.lp-btn:hover:not(:disabled) {
+  background: var(--fosforo);
+  color: #04120a;
+}
+
+.lp-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.lp-btn--discreto {
+  margin-top: 14px;
+  border-color: var(--linha);
+  color: var(--fosforo-suave);
+}
+
+.lp-estado {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+}
+
+.lp-led {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #555;
+}
+
+.lp-estado--conectado {
+  color: var(--fosforo);
+}
+
+.lp-estado--conectado .lp-led {
+  background: var(--fosforo);
+  box-shadow: 0 0 10px var(--fosforo);
+}
+
+.lp-estado--conectando .lp-led {
+  background: #ffd23a;
+  animation: lp-piscar 0.8s steps(1) infinite;
+}
+
+.lp-estado--erro {
+  color: var(--alerta);
+}
+
+.lp-estado--erro .lp-led {
+  background: var(--alerta);
+  box-shadow: 0 0 10px var(--alerta);
+}
+
+.lp-console {
+  background: #040605;
+  border: 1px solid var(--linha);
+  padding: 12px 14px;
+  min-height: 9.5em;
+  font-size: 0.85rem;
+  color: var(--fosforo-suave);
+}
+
+.lp-cursor {
+  display: inline-block;
+  color: var(--fosforo);
+  animation: lp-piscar 1s steps(1) infinite;
+}
+
+.lp-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.lp-check input {
+  margin-top: 4px;
+  accent-color: var(--fosforo);
+}
+
+.lp-nota {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+/* Teste */
+.lp-instrucao {
+  margin-bottom: 14px;
+}
+
+.lp-alvo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.lp-alvo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid var(--linha);
+  background: var(--painel-2);
+}
+
+.lp-alvo-item--atual {
+  border-color: var(--fosforo);
+  color: var(--fosforo);
+}
+
+.lp-alvo-item--feito {
+  opacity: 0.55;
+}
+
+.lp-alvo-cor {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.lp-ok {
+  color: var(--fosforo);
+}
+
+.lp-botoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.lp-botao {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  aspect-ratio: 1 / 0.8;
+  background: color-mix(in srgb, var(--cor) 28%, #0b0f0c);
+  color: #fff;
+  border: 2px solid color-mix(in srgb, var(--cor) 60%, #000);
+  cursor: pointer;
+  transition: background 0.08s, box-shadow 0.08s;
+}
+
+.lp-botao:disabled {
+  cursor: default;
+}
+
+.lp-botao:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--cor) 55%, #0b0f0c);
+}
+
+.lp-botao--aceso,
+.lp-botao--aceso:disabled {
+  background: var(--cor);
+  border-color: #fff;
+  color: #0a0a0a;
+  box-shadow: 0 0 26px var(--cor);
+}
+
+.lp-resultado {
+  margin-top: 20px;
+  color: var(--fosforo);
+  font-weight: 700;
+}
+
+/* Entrar */
+.lp-entrar {
+  max-width: 860px;
+  margin: 40px auto 0;
+}
+
+.lp-entrar-botao {
+  font: inherit;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.3em;
+  padding: 18px 48px;
+  background: var(--fosforo);
+  color: #04120a;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(93, 255, 122, 0.45);
+}
+
+.lp-entrar-botao:hover:not(:disabled) {
+  background: #8bff9f;
+}
+
+.lp-entrar-botao:disabled {
+  background: #1c2620;
+  color: #5b6b61;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Animações */
+@keyframes lp-piscar {
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes lp-tremer {
+  0%,
+  92%,
+  100% {
+    transform: translateX(0);
+  }
+  94% {
+    transform: translateX(-3px);
+  }
+  96% {
+    transform: translateX(3px);
+  }
+  98% {
+    transform: translateX(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-sala,
+  .lp-titulo,
+  .lp-cursor,
+  .lp-estado--conectando .lp-led {
+    animation: none;
+  }
+  .lp-botao {
+    transition: none;
+  }
+}
