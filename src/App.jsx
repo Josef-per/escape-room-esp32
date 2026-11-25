@@ -7,7 +7,7 @@ export default function LandingPage() {
   const navigation = useNavigate();
 
   function startGame() {
-    navigation("/Phase2");
+    navigation("/Phase3");
   }
 
   return (

@@ -1,0 +1,336 @@
+.bg {
+  --feltro: #1d4a44;
+  --feltro-escuro: #153732;
+  --tinta: #14201e;
+  --carta: #f6f1e7;
+  --carta-suave: #5d655f;
+  --borda: #d8d0bf;
+  --display: "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
+  --texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--feltro);
+  color: var(--carta);
+  font-family: var(--texto);
+  line-height: 1.55;
+}
+
+.bg *,
+.bg *::before,
+.bg *::after {
+  box-sizing: border-box;
+}
+
+.bg ul,
+.bg ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bg h1,
+.bg h2,
+.bg h3 {
+  font-family: var(--display);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.bg a:focus-visible {
+  outline: 3px solid #f0b92b;
+  outline-offset: 3px;
+}
+
+/* Topo */
+.bg-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px clamp(16px, 5vw, 56px);
+  background: var(--feltro-escuro);
+}
+
+.bg-marca {
+  font-family: var(--display);
+  font-size: 1.35rem;
+}
+
+.bg-menu {
+  display: flex;
+  gap: 22px;
+}
+
+.bg-menu a {
+  color: #cfe0db;
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 3px solid transparent;
+}
+
+.bg-menu a:hover,
+.bg-menu a[aria-current="page"] {
+  color: #fff;
+  border-bottom-color: #f0b92b;
+}
+
+.bg-conteudo {
+  flex: 1;
+}
+
+/* Hero (home) */
+.bg-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(36px, 7vw, 88px) clamp(16px, 5vw, 56px);
+}
+
+.bg-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin-bottom: 16px;
+}
+
+.bg-hero p {
+  font-size: 1.1rem;
+  max-width: 52ch;
+  margin: 0 0 20px;
+  color: #dbe9e5;
+}
+
+.bg-fatos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px !important;
+}
+
+.bg-fatos li {
+  padding: 6px 14px;
+  border: 2px solid #3f7168;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.bg-botao {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #f0b92b;
+  color: var(--tinta);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.bg-botao:hover {
+  background: #ffcb4a;
+}
+
+/* Caixa do jogo (ilustração em CSS) */
+.bg-caixa {
+  aspect-ratio: 4 / 3;
+  background: var(--carta);
+  color: var(--tinta);
+  border-radius: 12px;
+  border-bottom: 14px solid #cdbfa3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  transform: rotate(-3deg);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+}
+
+.bg-caixa-titulo {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.bg-caixa-pecas {
+  display: flex;
+  gap: 10px;
+}
+
+/* Peça */
+.bg-peca {
+  display: inline-block;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.22), 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Seções e cartões */
+.bg-secao {
+  padding: 32px clamp(16px, 5vw, 56px);
+}
+
+.bg-secao h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.bg-colunas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.bg-cartao {
+  background: var(--carta);
+  color: var(--tinta);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.bg-cartao h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.bg-cartao p {
+  margin: 0;
+  color: var(--carta-suave);
+}
+
+.bg-novidade {
+  max-width: 620px;
+}
+
+/* Regras (texto corrido) */
+.bg-leitura {
+  max-width: 760px;
+}
+
+.bg-leitura h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.bg-leitura h2 {
+  margin-top: 40px;
+}
+
+.bg-leitura p {
+  max-width: 65ch;
+  color: #dbe9e5;
+}
+
+.bg-intro {
+  color: #dbe9e5;
+  max-width: 60ch;
+  margin: 0 0 8px;
+}
+
+.bg-lista li {
+  padding: 8px 0 8px 22px;
+  position: relative;
+  border-bottom: 1px solid #2f5f57;
+}
+
+.bg-lista li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.1em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f0b92b;
+}
+
+.bg-passos {
+  counter-reset: passo;
+}
+
+.bg-passos li {
+  counter-increment: passo;
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #2f5f57;
+}
+
+.bg-passos li::before {
+  content: counter(passo);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--carta);
+  color: var(--tinta);
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.bg-turnos {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+.bg-turnos li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--feltro-escuro);
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 360px;
+}
+
+/* Galeria */
+.bg-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.bg-foto {
+  aspect-ratio: 4 / 3;
+  background: #c9a46c;
+  border: 6px solid #8a6a3b;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+
+.bg-trilha {
+  display: flex;
+  gap: 8px;
+}
+
+.bg-casa {
+  padding: 6px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  display: inline-flex;
+}
+
+/* Rodapé */
+.bg-rodape {
+  padding: 24px clamp(16px, 5vw, 56px);
+  background: var(--feltro-escuro);
+  color: #a9c4be;
+  font-size: 0.9rem;
+}
+
+.bg-rodape p {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .bg-hero {
+    grid-template-columns: 1fr;
+  }
+  .bg-caixa {
+    transform: none;
+  }
+}
