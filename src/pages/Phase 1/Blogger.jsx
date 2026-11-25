@@ -1,8 +1,8 @@
 import Sections from "../../components/SectionsPhase 1/Sections"
 
-import "./Page1.css"
+import "./Blogger.css"
 
-export default function Phase1() {
+export default function Blogger() {
 
   //senha = Vermelho, amarelo, vermelho, verde, azul, vemelho, amarelo
 

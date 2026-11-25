@@ -7,14 +7,16 @@ import {
 } from 'react-router-dom';
 
 import LandingPage from "./App";
-import Phase1 from './pages/Phase 1/Page1';
+import Blogger from './pages/Phase 1/Blogger';
+import PaintStore from './pages/Phase 2/PaintStore';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/Phase1" element={<Phase1 />} />
+        <Route path="/Phase1" element={<Blogger />} />
+        <Route path="/Phase2" element={<PaintStore/>} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
